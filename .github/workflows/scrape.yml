@@ -15,6 +15,7 @@ jobs:
     - name: Fetch latest data
       run: |-
         curl https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=vaccination_data| jq . > incidents.json
+        curl https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=integrated_county_timeseries_state_AR_external | jq . > country.json
     - name: Commit and push if it changed
       run: |-
         git config user.name "Automated"
